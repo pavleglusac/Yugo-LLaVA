@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "llava"
+version = "1.0.0"
+description = "Towards GPT-4 like large language and visual assistant."
+readme = "README.md"
+authors = ["Pavle Glusac"]
+keywords = ["language", "visual assistant", "Mistral", "YugoGPT"]
+license = "Apache-2.0"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+include = ["llava", "llava.*"]
+
+[tool.poetry.dependencies]
+python = ">=3.11.7"
+einops = "^0.6.1"
+fastapi = "^0.68.0"
+gradio = "==3.35.2"
+markdown2 = {extras = ["all"], version = "*"}
+numpy = "^1.26.4"
+requests = "*"
+sentencepiece = "==0.1.99"
+tokenizers = ">=0.12.1"
+torch = "==2.1.2"
+torchvision = "*"
+uvicorn = "*"
+wandb = "*"
+shortuuid = "*"
+httpx = "==0.24.0"
+deepspeed = "==0.9.5"
+peft = "==0.4.0"
+transformers = "==4.42.0"
+accelerate = "==0.21.0"
+bitsandbytes = "==0.41.0"
+scikit-learn = "==1.2.2"
+einops-exts = "==0.0.4"
+timm = "==0.6.13"
+gradio_client = "==0.2.9"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
