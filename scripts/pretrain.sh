@@ -2,9 +2,10 @@
 
 # Uncomment and set the following variables correspondingly to run this script:
 
-# MODEL_VERSION=vicuna-v1-3-7b
+# MODEL_VERSION=lmsys/vicuna-7b-v1.5
 # MODEL_VERSION=llama-2-7b-chat
-MODEL_VERSION=mistralai/Mistral-7B-v0.1
+MODEL_VERSION=gordicaleksa/YugoGPT
+# MODEL_VERSION=mistralai/Mistral-7B-v0.1
 
 ########### DO NOT CHANGE ###########
 ########### USE THIS FOR BOTH ###########
@@ -32,12 +33,12 @@ deepspeed llava/train/train_mem.py \
     --bf16 True \
     --output_dir ./checkpoints/mistral-pretrain \
     --num_train_epochs 1 \
-    --per_device_train_batch_size 32 \
+    --per_device_train_batch_size 8 \
     --per_device_eval_batch_size 4 \
     --gradient_accumulation_steps 1 \
     --evaluation_strategy "no" \
     --save_strategy "steps" \
-    --save_steps 24000 \
+    --save_steps 100 \
     --save_total_limit 1 \
     --learning_rate 1e-3 \
     --weight_decay 0. \
@@ -49,7 +50,8 @@ deepspeed llava/train/train_mem.py \
     --gradient_checkpointing True \
     --dataloader_num_workers 8 \
     --lazy_preprocess True \
-    --report_to wandb
+    --report_to wandb \
+    --token $HF_TOKEN
     
 # deepspeed llava/train/train_mem.py \
 #     --deepspeed ./scripts/zero2.json \
